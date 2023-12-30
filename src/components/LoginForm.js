@@ -5,6 +5,7 @@ const LoginForm = ({ setAuthToken }) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = async () => {
     try {
@@ -20,8 +21,8 @@ const LoginForm = ({ setAuthToken }) => {
       });
 
       if (!response.ok) {
-        // Handle authentication failure, e.g., show an error message
-        console.error('Authentication failed');
+        // Handle authentication failure, set error message
+        setError('Invalid credentials. Please try again.');
         return;
       }
 
@@ -36,11 +37,13 @@ const LoginForm = ({ setAuthToken }) => {
       navigate('/home');
     } catch (error) {
       console.error('Error during login:', error);
+      // Handle other errors as needed
     }
   };
 
   return (
     <div>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <label>Username:</label>
       <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       <label>Password:</label>
