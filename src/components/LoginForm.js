@@ -1,52 +1,50 @@
-// LoginForm.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ setAuthToken }) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        'https://dummyjson.com/auth',
-        { username, password },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const response = await fetch('https://dummyjson.com/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
 
-      const authToken = response.data.token;
+      if (!response.ok) {
+        // Handle authentication failure, e.g., show an error message
+        console.error('Authentication failed');
+        return;
+      }
+
+      const data = await response.json();
+      // Assuming the authentication server returns a token
+      const authToken = data.token;
+
+      // Store the authentication token in your app's state
       setAuthToken(authToken);
+
+      // Navigate to home screen after successful login
+      navigate('/home');
     } catch (error) {
-      console.error('Login failed', error);
-      setError('Invalid credentials. Please try again.');
+      console.error('Error during login:', error);
     }
   };
 
   return (
     <div>
-      <h2>Login</h2>
-      <div>
-        <label>Username:</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+      <label>Username:</label>
+      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+      <label>Password:</label>
+      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <button onClick={handleLogin}>Login</button>
     </div>
   );

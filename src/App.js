@@ -1,9 +1,7 @@
-// App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import LoginForm from './components/LoginForm';
-import PrivateRoute from './components/PrivateRoute';
 
 const App = () => {
   const [authToken, setAuthToken] = useState(null);
@@ -15,13 +13,10 @@ const App = () => {
           path="/login"
           element={<LoginForm setAuthToken={setAuthToken} />}
         />
-        {/* Use PrivateRoute within a Route inside Routes */}
         <Route
           path="/home"
-          element={<PrivateRoute authToken={authToken} />}
+          element={<Home authToken={authToken} />}
         />
-        {/* Other routes */}
-        <Route path="/" element={<Home authToken={authToken} />} />
       </Routes>
     </Router>
   );

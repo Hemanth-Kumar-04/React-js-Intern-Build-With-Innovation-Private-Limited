@@ -1,14 +1,20 @@
-// Home.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Home = ({ authToken }) => {
+const Home = ({ authToken, history }) => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
 
   useEffect(() => {
+    // Check if authToken is present
+    if (!authToken) {
+      // Redirect to login if not authenticated
+      history.push('/login');
+      return;
+    }
+
     // Function to fetch products
     const fetchProducts = async () => {
       try {
@@ -16,7 +22,7 @@ const Home = ({ authToken }) => {
 
         // Apply search if a search term is provided
         if (searchTerm) {
-          url += `/search?q=${encodeURIComponent(searchTerm)}`;
+          url += `?q=${encodeURIComponent(searchTerm)}`;
         }
 
         const response = await axios.get(url, {
@@ -29,7 +35,7 @@ const Home = ({ authToken }) => {
     };
 
     fetchProducts();
-  }, [authToken, searchTerm]);
+  }, [authToken, searchTerm, history]);
 
   const filteredProducts = products.filter(
     (product) =>
