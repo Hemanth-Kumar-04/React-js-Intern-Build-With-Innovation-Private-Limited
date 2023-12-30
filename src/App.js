@@ -1,10 +1,13 @@
+// App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import LoginForm from './components/LoginForm';
 
 const App = () => {
   const [authToken, setAuthToken] = useState(null);
+
+  const isAuthenticated = !!authToken;
 
   return (
     <Router>
@@ -15,8 +18,10 @@ const App = () => {
         />
         <Route
           path="/home"
-          element={<Home authToken={authToken} />}
+          element={isAuthenticated ? <Home authToken={authToken} /> : <Navigate to="/login" />}
         />
+        {/* Add more routes as needed */}
+        <Route path="/*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   );
