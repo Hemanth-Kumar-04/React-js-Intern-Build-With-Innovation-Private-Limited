@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import LoginForm from './components/LoginForm';
+import PrivateRoute from './components/PrivateRoute';
 
-function App() {
+const App = () => {
+  const [authToken, setAuthToken] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/login"
+          element={<LoginForm setAuthToken={setAuthToken} />}
+        />
+        {/* Use PrivateRoute within a Route inside Routes */}
+        <Route
+          path="/home"
+          element={<PrivateRoute authToken={authToken} />}
+        />
+        {/* Other routes */}
+        <Route path="/" element={<Home authToken={authToken} />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
