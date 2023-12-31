@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './LoginForm.css';
 
 const LoginForm = ({ setAuthToken }) => {
   const navigate = useNavigate();
@@ -41,21 +42,29 @@ const LoginForm = ({ setAuthToken }) => {
   };
 
   return (
-    <div className="login-content">
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <label>Username:</label>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <label>Password:</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+    <div className="login-box">
+      <div className="login-content">
+        <div className="userName">
+          {error && <p>{error}</p>}
+          <label className="label">Username:</label>
+          <input
+           className="input"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <label className="label">Password:</label>
+        <input
+          className="input"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin} className="button">
+          Login
+        </button>
+      </div>
     </div>
   );
 };

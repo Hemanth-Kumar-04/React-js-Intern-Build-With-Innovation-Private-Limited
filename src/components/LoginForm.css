@@ -1,0 +1,67 @@
+/* LoginForm.css */
+
+.login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  }
+  
+  .login-content {
+    padding: 16px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.5%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  .userName {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure the input field takes up the full width */
+  }
+  
+  .label {
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  
+  .input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  .button {
+    padding: 12px 70px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  p {
+    color: red;
+    margin-bottom: 10px;
+  }
+  

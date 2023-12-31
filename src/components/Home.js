@@ -1,5 +1,7 @@
+// Home.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Home.css';
 
 const Home = ({ authToken, history }) => {
   const [products, setProducts] = useState([]);
@@ -44,6 +46,16 @@ const Home = ({ authToken, history }) => {
       (!maxPrice || product.price <= parseFloat(maxPrice))
   );
 
+  const handleAddToCart = (productId) => {
+    // Implement your logic for adding the product to the cart
+    console.log(`Added product with ID ${productId} to the cart`);
+  };
+
+  const handleViewDetails = (productId) => {
+    // Implement your logic for viewing details of the product
+    console.log(`View details for product with ID ${productId}`);
+  };
+
   return (
     <div>
       <div>
@@ -66,11 +78,19 @@ const Home = ({ authToken, history }) => {
           onChange={(e) => setMaxPrice(e.target.value)}
         />
       </div>
-      <div>
+      <div className="product-container">
         {filteredProducts.map((product) => (
-          <div key={product.id}>
+          <div key={product.id} className="product-card">
             <div>{product.title} - ${product.price}</div>
             {/* Add other product details as needed */}
+            <div className='button-items'> 
+            <button className="buttonc" onClick={() => handleAddToCart(product.id)}>
+              Add to Cart
+            </button>
+            <button className="buttonc" onClick={() => handleViewDetails(product.id)}>
+              View Details
+            </button>
+            </div>
           </div>
         ))}
       </div>
