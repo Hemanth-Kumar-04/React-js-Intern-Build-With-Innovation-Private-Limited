@@ -41,7 +41,7 @@ const LoginForm = ({ setAuthToken }) => {
   };
 
   return (
-    <div>
+    <div className="login-content">
       {error && <p style={{ color: "red" }}>{error}</p>}
       <label>Username:</label>
       <input
