@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
@@ -20,7 +19,7 @@ const App = () => {
           path="/home"
           element={isAuthenticated ? <Home authToken={authToken} /> : <Navigate to="/login" />}
         />
-        {/* Add more routes as needed */}
+      
         <Route path="/*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>

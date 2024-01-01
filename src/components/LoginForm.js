@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './LoginForm.css';
+import "./LoginForm.css";
 
 const LoginForm = ({ setAuthToken }) => {
   const navigate = useNavigate();
@@ -22,22 +22,18 @@ const LoginForm = ({ setAuthToken }) => {
       });
 
       if (!response.ok) {
-        // Handle authentication failure, set error message
         setError("Invalid credentials. Please try again.");
         return;
       }
 
       const data = await response.json();
-      // Assuming the authentication server returns a token
       const authToken = data.token;
 
-      // Store the authentication token in your app's state
       setAuthToken(authToken);
-      // Navigate to home screen after successful login
+
       navigate("/home");
     } catch (error) {
       console.error("Error during login:", error);
-      // Handle other errors as needed
     }
   };
 
@@ -48,7 +44,7 @@ const LoginForm = ({ setAuthToken }) => {
           {error && <p>{error}</p>}
           <label className="label">Username:</label>
           <input
-           className="input"
+            className="input"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
