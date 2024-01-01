@@ -58,26 +58,35 @@ const Home = ({ authToken, history }) => {
   };
 
   return (
-    <div>
+    <div className='full'>
       <div>
+        <div className='Searchdiv'>
+
         <input
           type="text"
+          className='SearchInput'
           placeholder="Search products"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-        />
+          />
+          </div>
+        <div className='Filtering'>
+
         <label>Min Price:</label>
         <input
-          type="number"
-          value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
-        />
+           className='Input'
+           type="number"
+           value={minPrice}
+           onChange={(e) => setMinPrice(e.target.value)}
+           />
         <label>Max Price:</label>
         <input
+          className='Input'
           type="number"
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
-        />
+          />
+          </div>
       </div>
       <div className="product-container">
         {filteredProducts.map((product) => (

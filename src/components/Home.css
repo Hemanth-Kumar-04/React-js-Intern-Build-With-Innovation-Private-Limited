@@ -1,28 +1,41 @@
 /* Home.css */
 
-.search-container {
+.Searchdiv {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 16px; /* Add margin to separate search bar from product cards */
   }
   
-  .search-input {
-    padding: 10px;
-    border: 1px solid #ddd;
+  .SearchInput {
+    margin-top: 20px;
+    padding: 10px 90px;
+    border: 1px solid #989898;
     border-radius: 4px;
     margin-right: 8px;
+    margin-bottom: 20px;
   }
   
-  .label {
-    margin-right: 8px;
-  }
-  
-  .number-input {
-    padding: 10px;
-    border: 1px solid #ddd;
+  /* Home.css */
+
+.Filtering {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #989898;
     border-radius: 4px;
-    color: #000; /* Set text color to black */
+    align-items: flex-start; /* Align to the left */
+    margin-top: 20px; /* Add margin for separation */
+    width: 200px; /* Set a specific width */
+
+  }
+  
+  .Input {
+    padding: 6px 12px; /* Adjust the padding for a smaller size */
+    border: 1px solid #989898;
+    border-radius: 4px;
+    margin-bottom: 8px; /* Add margin between input fields */
   }
   
   .product-container {
@@ -51,34 +64,33 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-}
-
-.buttonc, #lightbutton {
+  }
+  
+  .buttonc,
+  #lightbutton {
     background-color: #4CAF50;
     color: #fff;
     padding: 8px 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 8px; 
-}
-
-.buttonc {
+    margin-top: 8px;
+  }
+  
+  .buttonc {
     margin-right: 4px; /* Adjust the spacing between buttons if needed */
-}
-
-.image {
-    width: 100%; /* Ensure the image takes 100% width of the card */
-    height: auto; /* Allow the image to maintain its aspect ratio */
-    border-radius: 8px;
-    margin-bottom: 10px; /* Add margin to separate image from other content */
-}
-
-.product-details {
+  }
+  
+  .product-details {
     font-weight: bold;
-}
-
-.product-price {
+  }
+  
+  .product-price {
     font-weight: bold;
     margin-top: 8px; /* Add spacing between name and price */
-}
+  }
+
+  .full{
+    margin:20px;
+  }
+  
