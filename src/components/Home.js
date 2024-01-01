@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Home.css';
-
+import image from './ecommerce-1706103_1280.png';
+ 
 const Home = ({ authToken, history }) => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -81,13 +82,15 @@ const Home = ({ authToken, history }) => {
       <div className="product-container">
         {filteredProducts.map((product) => (
           <div key={product.id} className="product-card">
-            <div>{product.title} - ${product.price}</div>
+            <img src={image} className='image'/>
+            <div>{product.title}</div>
+             <div> ${product.price}</div>
             {/* Add other product details as needed */}
             <div className='button-items'> 
-            <button className="buttonc" onClick={() => handleAddToCart(product.id)}>
+            <button className="buttonc"  onClick={() => handleAddToCart(product.id)}>
               Add to Cart
             </button>
-            <button className="buttonc" onClick={() => handleViewDetails(product.id)}>
+            <button className="buttonc" id='lightbutton' onClick={() => handleViewDetails(product.id)}>
               View Details
             </button>
             </div>

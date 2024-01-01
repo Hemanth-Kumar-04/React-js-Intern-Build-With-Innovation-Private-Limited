@@ -5,27 +5,48 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-  
+
 .product-card {
-    width: calc(17% - 16px); /* 25% width for each card with some margin in between */
+    width: calc(25% - 16px);
     margin-bottom: 16px;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
 }
-  
+
 .button-items {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
 
-.buttonc {
+.buttonc, #lightbutton {
     background-color: #4CAF50;
     color: #fff;
-    padding: 8px 12px; /* Adjust padding for a rectangular shape */
+    padding: 8px 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 8px;
+}
+
+.buttonc {
+    margin-right: 4px; /* Adjust the spacing between buttons if needed */
+}
+
+.image {
+    width: 100%; /* Ensure the image takes 100% width of the card */
+    height: auto; /* Allow the image to maintain its aspect ratio */
+    border-radius: 8px;
+    margin-bottom: 10px; /* Add margin to separate image from other content */
+}
+
+.product-details {
+    font-weight: bold;
+}
+
+.product-price {
+    font-weight: bold;
+    margin-top: 8px; /* Add spacing between name and price */
 }
