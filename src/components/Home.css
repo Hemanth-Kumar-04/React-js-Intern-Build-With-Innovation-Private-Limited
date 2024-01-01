@@ -1,21 +1,53 @@
 /* Home.css */
 
-.product-container {
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px; /* Add margin to separate search bar from product cards */
+  }
+  
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 8px;
+  }
+  
+  .label {
+    margin-right: 8px;
+  }
+  
+  .number-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #000; /* Set text color to black */
+  }
+  
+  .product-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-
-.product-card {
+  }
+  
+  .product-card {
     width: calc(25% - 16px);
     margin-bottom: 16px;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
-    box-sizing: border-box; /* Include padding and border in the width calculation */
-}
-
-.button-items {
+    box-sizing: border-box;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .button-items {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
@@ -28,7 +60,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 8px; 
 }
 
 .buttonc {
