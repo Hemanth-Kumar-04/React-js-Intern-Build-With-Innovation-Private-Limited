@@ -19,6 +19,7 @@ const Home = ({ authToken, history }) => {
     const fetchProducts = async () => {
       try {
         let url = "https://dummyjson.com/products";
+        
 
         if (searchTerm) {
           url += `?q=${encodeURIComponent(searchTerm)}`;
