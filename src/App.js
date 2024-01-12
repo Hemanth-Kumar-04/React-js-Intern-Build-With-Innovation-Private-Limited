@@ -18,12 +18,11 @@ const App = () => {
         <Route
           path="/home"
           element={isAuthenticated ? <Home authToken={authToken} /> : <Navigate to="/login" />}
-        />
-      
+        />      
         <Route path="/*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   );
 };
-
+   
 export default App;
